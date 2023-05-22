@@ -37,13 +37,19 @@ export default StyleSheet.create({
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.18,
+    shadowOpacity: 0.5,
     shadowRadius: 1.0,
     elevation: 7,
     backgroundColor: "#fff",
     borderRadius: 6,
     paddingBottom: 10,
-    overflow: "hidden"
+  },
+  container: {
+    overflow: "hidden",
+    width: '100%',
+    height: "100%",
+    borderRadius: 6,
+    alignItems: "center",
   },
   text: {
     color: "black",

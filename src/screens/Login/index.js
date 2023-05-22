@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // @flow
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, KeyboardAvoidingView } from 'react-native';
 import styles from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
@@ -45,26 +45,28 @@ export default function Login({ navigation }) {
 
   return (
     <SafeAreaView>
-      <View style={styles.wrapper}>
-        <Text style={styles.title}>Login</Text>
-        <Input
-          value={email}
-          onChangeText={setEmail}
-          placeholder={'Email'}
-          keyboardType={"email-address"}
-        />
-        <Input
-          value={password}
-          onChangeText={setPassword}
-          placeholder={'Password'}
-          secureTextEntry
-        />
-        <Button
-          title={"continue"}
-          onPress={onLogin}
-          isDisabled={!email || !password}
-          isLoading={loading} />
-      </View>
-    </SafeAreaView>
+      <KeyboardAvoidingView behavior={"height"}>
+        <View style={styles.wrapper}>
+          <Text style={styles.title}>Login</Text>
+          <Input
+            value={email}
+            onChangeText={setEmail}
+            placeholder={'Email'}
+            keyboardType={"email-address"}
+          />
+          <Input
+            value={password}
+            onChangeText={setPassword}
+            placeholder={'Password'}
+            secureTextEntry
+          />
+          <Button
+            title={"continue"}
+            onPress={onLogin}
+            isDisabled={!email || !password}
+            isLoading={loading} />
+        </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView >
   );
 }
