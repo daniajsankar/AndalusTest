@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // @flow
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';

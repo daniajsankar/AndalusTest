@@ -49,7 +49,8 @@ export default function Category({ navigation, route }) {
           contentContainerStyle={styles.contentContainer}>
           <View style={styles.wrapper}>
             {cats.map((cat) => {
-              return <TouchableOpacity key={cat.id} style={styles.item}>
+              return <TouchableOpacity key={cat.id} style={styles.item}
+                onPress={() => navigation.navigate("Cat Details", { catDetails: cat })}>
                 <Image source={{ uri: cat.url }} style={styles.image} />
                 <Text style={styles.text}>{cat.id}</Text>
               </TouchableOpacity>

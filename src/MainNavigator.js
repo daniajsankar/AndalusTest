@@ -5,6 +5,7 @@ import auth from '@react-native-firebase/auth';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import Category from './screens/Category';
+import CatDetails from './screens/CatDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,11 @@ function MainNavigator() {
       <Stack.Screen
         name="Category"
         component={Category}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="Cat Details"
+        component={CatDetails}
         options={{ headerShown: true }}
       />
     </Stack.Navigator>
