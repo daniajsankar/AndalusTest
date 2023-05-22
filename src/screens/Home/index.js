@@ -1,19 +1,54 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // @flow
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTheme } from '@react-navigation/native';
+import api from '../../api';
+
+
+async function getCategories() {
+  const response = await api.get_categories();
+  if (response && response.status >= 200 && response.status < 300) {
+    return response.data;
+  }
+  return [];
+}
 
 export default function Home({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  const {
+    colors: { primary },
+  } = useTheme();
+
+  useEffect(() => {
+    getCategories().then((res) => {
+      console.log(res);
+      setCategories(res);
+      setLoading(false);
+    }).catch((error) => {
+      console.error(error);
+      setLoading(false);
+    });
+  }, []);
   return (
-    <SafeAreaView>
-      <View style={styles.wrapper}>
-       
-      </View>
+    <SafeAreaView style={styles.root}>
+      {loading ? <View style={styles.loadingWrapper}>
+        <ActivityIndicator size="large" color={primary} /></View> :
+        <ScrollView showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.contentContainer}>
+          <View style={styles.wrapper}>
+            {categories.map((cat) => {
+              return <TouchableOpacity key={cat.id} style={styles.category}>
+                <Text style={styles.text}>{cat.name}</Text>
+              </TouchableOpacity>
+            })}
+          </View>
+        </ScrollView>
+      }
     </SafeAreaView>
   );
 }
