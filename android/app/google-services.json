@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "587555808592",
+    "project_id": "andalus-test",
+    "storage_bucket": "andalus-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587555808592:android:799607e0522658fd387855",
+        "android_client_info": {
+          "package_name": "com.andalustest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587555808592-fl6qq81ld7ukqbbo9l3jca9m56qj3n0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9ev9ziU1wmm-dClVQ2HdxG3H8fQmyvOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587555808592-fl6qq81ld7ukqbbo9l3jca9m56qj3n0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
