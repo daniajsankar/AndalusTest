@@ -40,5 +40,16 @@ export default {
             },
         });
     },
+    get_category: (id) => {
+        return axios({
+            url: `${baseUrl}images/search?category_ids=${id}`,
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'x-api-key': apiKey,
+            },
+        });
+    },
 }
 

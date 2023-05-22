@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import auth from '@react-native-firebase/auth';
 import Login from './screens/Login';
 import Home from './screens/Home';
+import Category from './screens/Category';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,11 @@ function MainNavigator() {
       <Stack.Screen
         name="Home"
         component={Home}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="Category"
+        component={Category}
         options={{ headerShown: true }}
       />
     </Stack.Navigator>
